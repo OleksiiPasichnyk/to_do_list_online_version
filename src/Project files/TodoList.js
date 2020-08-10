@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import '../App.css';
 import TodoListItem from "./TodoListItem";
 
@@ -9,8 +9,17 @@ function TodoList(props) {
         <div>
             <center>
 
-                {todoList.map(el =>
-                    <TodoListItem el={el} deleteTodo={props.deleteTodo} updateTodo={props.updateTodo} markTodo = {props.markTodo}/>
+                {todoList.map((el, index) =>
+                    <TodoListItem key={el.id}
+                                  el={el}
+                                  deleteTodo={props.deleteTodo}
+                                  updateTodo={props.updateTodo}
+                                  markTodo={props.markTodo}
+                                  index={index}
+                                  moveUp={props.moveUp}
+                                  moveDown={props.moveDown}
+                                  listLength = {todoList.length}
+                    />
                 )}
 
             </center>
