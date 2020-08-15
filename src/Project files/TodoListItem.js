@@ -4,7 +4,7 @@ function TodoListItem(props) {
     const {el, updateTodo, index, listLength} = props
     const [editTitle, setEditTitle] = useState(el.title)
     const editButtonHandler = () => {
-        updateTodo(editTitle, el.id)
+        updateTodo(editTitle, el._id)
         setEditMode(false)
         setEditTitle("");
     }
@@ -12,16 +12,16 @@ function TodoListItem(props) {
     const [editMode, setEditMode] = useState(false)
     return (
         <div>
-            <li  key = {el.id} style={style}>
+            <li  key = {el._id} style={style}>
                 <>
-                    <input type="checkbox" checked={el.done} onChange={() => props.markTodo(el.id)}/>
-                    {el.title}
+                    <input type="checkbox" checked={el.done} onChange={() => props.markTodo(el._id)}/>
+                    {el.name}
                     {editMode ? <> <input type="text" value={editTitle} onChange={(e) => setEditTitle(e.target.value)}/>
                             <button onClick={editButtonHandler}> Save</button>
                         </>
                         :
                         <>
-                            <button onClick={() => props.deleteTodo(el.id)}> delete</button>
+                            <button onClick={() => props.deleteTodo(el._id)}> delete</button>
                             <button onClick={() => setEditMode(!editMode)}>Edit</button>
                             <button disabled={!index} onClick={() => props.moveUp(props.index)}>↑</button>
                             <button disabled={index===(listLength -1)}

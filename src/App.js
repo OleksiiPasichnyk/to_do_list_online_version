@@ -1,32 +1,55 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import TodoList from "./Project files/TodoList";
 import TodoController from "./Project files/TodoController";
+import axios from 'axios';
 
 function App() {
-    const [list, setList] = useState(
-        [{id: 1, title: "Object One", done: false},
-            {id: 2, title: "Object Two", done: false},
-            {id: 3, title: "Object Three", done: true}])
-    const addNewTodo = (newTitle) => {
-        const newTodo = {id: Math.random(), title: newTitle, done: false}
-        const newList = [...list, newTodo]
-        setList(newList)
+
+
+const [list, setList] = useState([])
+
+
+const addNewTodo = async (newTitle) => {
+    await axios.post('http://localhost:5000/todo', {
+            name: newTitle, done:true, _id: Math.random() })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    await axios.get('http://localhost:5000/todo')
+        .then(function (response) {
+            const listFromServer = response.data
+            // handle success
+            console.log(listFromServer);
+            setList(listFromServer)
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+                 })
+
+        // const newTodo = {_id: Math.random(), name: newTitle, done: false}
+        // const newList = [...list, newTodo]
+        // setList(newList)
     }
-    const deleteTodo = (id) => {
-        const newList = [...list].filter(el => el.id !== id)
+    const deleteTodo = (_id) => {
+        const newList = [...list].filter(el => el._id !== _id)
         setList(newList)
     }
     const updateTodo = (newTitle, id) => {
         const newList = list.map((el) => {
-            if (id === el.id) return {...el, title: newTitle}
+            if (id === el._id) return {...el, title: newTitle}
             return el
         })
         setList(newList)
     }
-    const markTodo = (id) => {
+    const markTodo = (_id) => {
         const newList = list.map((el) => {
-            if (el.id === id) return {...el, done: !el.done}
+            if (el._id === _id) return {...el, done: !el.done}
             return el
         })
         setList(newList)
@@ -35,10 +58,11 @@ function App() {
         if (index === 0)
             return
         const newList = list.map((el, i) => {
-            if (index === i) return list[index - 1];
             if (index === i + 1) return list[index];
+            if (index === i) return list[index - 1];
             return el
             })
+        console.log(newList)
         setList(newList)
 
 
@@ -52,6 +76,30 @@ function App() {
         setList(newList)
 
     }
+    useEffect( ()=> {
+        axios.get('http://localhost:5000/todo')
+            .then(function (response) {
+                const listFromServer = response.data
+                // handle success
+                console.log(listFromServer);
+                setList(listFromServer)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
+    }, [])
+    // axios.post('http://localhost:5000/todo', {
+    //     name: 'AxelP',
+    //     editMode: true
+    // })
+    //     .then(function (response) {
+    //         console.log(response);
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
+    //id, title, done
     return (
         <div>
             <TodoController addNewTodo={addNewTodo}/>

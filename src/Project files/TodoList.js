@@ -10,7 +10,7 @@ function TodoList(props) {
             <center>
 
                 {todoList.map((el, index) =>
-                    <TodoListItem key={el.id}
+                    <TodoListItem key={el._id}
                                   el={el}
                                   deleteTodo={props.deleteTodo}
                                   updateTodo={props.updateTodo}
