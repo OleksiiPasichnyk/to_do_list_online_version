@@ -7,12 +7,13 @@ import axios from 'axios';
 function App() {
 
 
-const [list, setList] = useState([])
+    const [list, setList] = useState([])
 
 
-const addNewTodo = async (newTitle) => {
-    await axios.post('http://localhost:5000/todo', {
-            name: newTitle, done:true, _id: Math.random() })
+    const addNewTodo = async (newTitle) => {
+        await axios.post('http://cryptic-shore-44131.herokuapp.com/todo', {
+            name: newTitle, done: true, _id: Math.random()
+        })
             .then(function (response) {
                 console.log(response);
             })
@@ -20,39 +21,82 @@ const addNewTodo = async (newTitle) => {
                 console.log(error);
             });
 
-    await axios.get('http://localhost:5000/todo')
-        .then(function (response) {
-            const listFromServer = response.data
-            // handle success
-            console.log(listFromServer);
-            setList(listFromServer)
-        })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-                 })
+        await axios.get('http://cryptic-shore-44131.herokuapp.com/todo')
+            .then(function (response) {
+                const listFromServer = response.data
+                // handle success
+                console.log(listFromServer);
+                setList(listFromServer)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
 
         // const newTodo = {_id: Math.random(), name: newTitle, done: false}
         // const newList = [...list, newTodo]
         // setList(newList)
     }
-    const deleteTodo = (_id) => {
-        const newList = [...list].filter(el => el._id !== _id)
-        setList(newList)
+    const deleteTodo = async (_id) => {
+        await axios.delete(`http://cryptic-shore-44131.herokuapp.com/todo/${_id}`, {})
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        await axios.get('http://cryptic-shore-44131.herokuapp.com/todo')
+            .then(function (response) {
+                const listFromServer = response.data
+                // handle success
+                console.log(listFromServer);
+                setList(listFromServer)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
     }
-    const updateTodo = (newTitle, id) => {
-        const newList = list.map((el) => {
-            if (id === el._id) return {...el, title: newTitle}
-            return el
-        })
-        setList(newList)
+    const updateTodo = async (newTitle, _id) => {
+        await axios.patch(`http://cryptic-shore-44131.herokuapp.com/todo/${_id}`, {name:newTitle})
+            .then(function () {
+                         })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        await axios.get('http://cryptic-shore-44131.herokuapp.com/todo')
+            .then(function (response) {
+                const listFromServer = response.data
+                // handle success
+                console.log(listFromServer);
+                setList(listFromServer)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
     }
-    const markTodo = (_id) => {
-        const newList = list.map((el) => {
-            if (el._id === _id) return {...el, done: !el.done}
-            return el
-        })
-        setList(newList)
+    const markTodo = async (_id, done) => {
+        await axios.patch(`http://cryptic-shore-44131.herokuapp.com/todo/${_id}`, {done: !done})
+            .then(function (response) {
+            })
+
+            .catch(function (error) {
+                console.log(error);
+            })
+        await axios.get('http://cryptic-shore-44131.herokuapp.com/todo')
+            .then(function (response) {
+                const listFromServer = response.data
+                // handle success
+                console.log(listFromServer);
+                setList(listFromServer)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
     }
     const moveUp = (index) => {
         if (index === 0)
@@ -77,7 +121,7 @@ const addNewTodo = async (newTitle) => {
 
     }
     useEffect( ()=> {
-        axios.get('http://localhost:5000/todo')
+        axios.get('http://cryptic-shore-44131.herokuapp.com/todo')
             .then(function (response) {
                 const listFromServer = response.data
                 // handle success

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../App.css';
 function TodoListItem(props) {
     const {el, updateTodo, index, listLength} = props
-    const [editTitle, setEditTitle] = useState(el.title)
+    const [editTitle, setEditTitle] = useState(el.name)
     const editButtonHandler = () => {
         updateTodo(editTitle, el._id)
         setEditMode(false)
@@ -14,7 +14,7 @@ function TodoListItem(props) {
         <div>
             <li  key = {el._id} style={style}>
                 <>
-                    <input type="checkbox" checked={el.done} onChange={() => props.markTodo(el._id)}/>
+                    <input type="checkbox" checked={el.done} onChange={() => props.markTodo(el._id, el.done)}/>
                     {el.name}
                     {editMode ? <> <input type="text" value={editTitle} onChange={(e) => setEditTitle(e.target.value)}/>
                             <button onClick={editButtonHandler}> Save</button>
