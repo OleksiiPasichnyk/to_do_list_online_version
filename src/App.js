@@ -12,7 +12,7 @@ function App() {
 
     const addNewTodo = async (newTitle) => {
         await axios.post('https://cryptic-shore-44131.herokuapp.com/todo', {
-            name: newTitle, done: true, _id: Math.random()
+            name: newTitle, done: false, _id: Math.random()
         })
             .then(function (response) {
                 console.log(response);
