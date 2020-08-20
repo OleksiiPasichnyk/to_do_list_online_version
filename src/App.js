@@ -98,6 +98,7 @@ function App() {
                 console.log(error);
             })
     }
+
     const moveUp = (index) => {
         if (index === 0)
             return
