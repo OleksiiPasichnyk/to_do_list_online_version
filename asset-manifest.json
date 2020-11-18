@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/to_do_list_online_version/static/css/main.523f09c5.chunk.css",
+    "main.js": "/to_do_list_online_version/static/js/main.f59ab896.chunk.js",
+    "main.js.map": "/to_do_list_online_version/static/js/main.f59ab896.chunk.js.map",
+    "runtime-main.js": "/to_do_list_online_version/static/js/runtime-main.db2f01fe.js",
+    "runtime-main.js.map": "/to_do_list_online_version/static/js/runtime-main.db2f01fe.js.map",
+    "static/js/2.9104603f.chunk.js": "/to_do_list_online_version/static/js/2.9104603f.chunk.js",
+    "static/js/2.9104603f.chunk.js.map": "/to_do_list_online_version/static/js/2.9104603f.chunk.js.map",
+    "index.html": "/to_do_list_online_version/index.html",
+    "precache-manifest.aebce3fb8afcc7ab990f10a9f38463d3.js": "/to_do_list_online_version/precache-manifest.aebce3fb8afcc7ab990f10a9f38463d3.js",
+    "service-worker.js": "/to_do_list_online_version/service-worker.js",
+    "static/css/main.523f09c5.chunk.css.map": "/to_do_list_online_version/static/css/main.523f09c5.chunk.css.map",
+    "static/js/2.9104603f.chunk.js.LICENSE.txt": "/to_do_list_online_version/static/js/2.9104603f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.db2f01fe.js",
+    "static/js/2.9104603f.chunk.js",
+    "static/css/main.523f09c5.chunk.css",
+    "static/js/main.f59ab896.chunk.js"
+  ]
+}
