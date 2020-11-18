@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/to_do_list_online_version/static/css/main.523f09c5.chunk.css",
-    "main.js": "/to_do_list_online_version/static/js/main.f59ab896.chunk.js",
-    "main.js.map": "/to_do_list_online_version/static/js/main.f59ab896.chunk.js.map",
-    "runtime-main.js": "/to_do_list_online_version/static/js/runtime-main.db2f01fe.js",
-    "runtime-main.js.map": "/to_do_list_online_version/static/js/runtime-main.db2f01fe.js.map",
-    "static/js/2.9104603f.chunk.js": "/to_do_list_online_version/static/js/2.9104603f.chunk.js",
-    "static/js/2.9104603f.chunk.js.map": "/to_do_list_online_version/static/js/2.9104603f.chunk.js.map",
-    "index.html": "/to_do_list_online_version/index.html",
-    "precache-manifest.aebce3fb8afcc7ab990f10a9f38463d3.js": "/to_do_list_online_version/precache-manifest.aebce3fb8afcc7ab990f10a9f38463d3.js",
-    "service-worker.js": "/to_do_list_online_version/service-worker.js",
-    "static/css/main.523f09c5.chunk.css.map": "/to_do_list_online_version/static/css/main.523f09c5.chunk.css.map",
-    "static/js/2.9104603f.chunk.js.LICENSE.txt": "/to_do_list_online_version/static/js/2.9104603f.chunk.js.LICENSE.txt"
+    "main.css": "/to_do_list_online_versionv2/static/css/main.523f09c5.chunk.css",
+    "main.js": "/to_do_list_online_versionv2/static/js/main.0f17386a.chunk.js",
+    "main.js.map": "/to_do_list_online_versionv2/static/js/main.0f17386a.chunk.js.map",
+    "runtime-main.js": "/to_do_list_online_versionv2/static/js/runtime-main.fb4ea518.js",
+    "runtime-main.js.map": "/to_do_list_online_versionv2/static/js/runtime-main.fb4ea518.js.map",
+    "static/js/2.bd988e33.chunk.js": "/to_do_list_online_versionv2/static/js/2.bd988e33.chunk.js",
+    "static/js/2.bd988e33.chunk.js.map": "/to_do_list_online_versionv2/static/js/2.bd988e33.chunk.js.map",
+    "index.html": "/to_do_list_online_versionv2/index.html",
+    "precache-manifest.20864ecb8f2744fd7a660f72d7be0e5f.js": "/to_do_list_online_versionv2/precache-manifest.20864ecb8f2744fd7a660f72d7be0e5f.js",
+    "service-worker.js": "/to_do_list_online_versionv2/service-worker.js",
+    "static/css/main.523f09c5.chunk.css.map": "/to_do_list_online_versionv2/static/css/main.523f09c5.chunk.css.map",
+    "static/js/2.bd988e33.chunk.js.LICENSE.txt": "/to_do_list_online_versionv2/static/js/2.bd988e33.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.db2f01fe.js",
-    "static/js/2.9104603f.chunk.js",
+    "static/js/runtime-main.fb4ea518.js",
+    "static/js/2.bd988e33.chunk.js",
     "static/css/main.523f09c5.chunk.css",
-    "static/js/main.f59ab896.chunk.js"
+    "static/js/main.0f17386a.chunk.js"
   ]
 }
