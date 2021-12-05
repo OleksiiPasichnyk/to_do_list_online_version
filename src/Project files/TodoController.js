@@ -12,7 +12,7 @@ function TodoController(props) {
             <center>
                 {"name of new Task"}
                 <input value={newTodo} onChange={(e) => setNewTodo(e.target.value)}/>
-                <button onClick={buttonHandler}> addNewTodo</button>
+                <button onClick={buttonHandler} placeholder = {"please enter your todo"}> addNewTodo</button>
 
 
             </center>

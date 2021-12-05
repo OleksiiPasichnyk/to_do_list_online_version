@@ -12,7 +12,7 @@ function App() {
 
 
     const addNewTodo = async (newTitle) => {
-        await axios.post('https://cryptic-shore-44131.herokuapp.com/todo', {
+        await axios.post('http://127.0.0.1:5000/todo', {
             name: newTitle, done: false, _id: Math.random()
         })
             .then(function (response) {
@@ -22,7 +22,7 @@ function App() {
                 console.log(error);
             });
 
-        await axios.get('https://cryptic-shore-44131.herokuapp.com/todo')
+        await axios.get('http://127.0.0.1:5000/todo')
             .then(function (response) {
                 const listFromServer = response.data
                 // handle success
@@ -39,7 +39,7 @@ function App() {
         // setList(newList)
     }
     const deleteTodo = async (_id) => {
-        await axios.delete(`https://cryptic-shore-44131.herokuapp.com/todo/${_id}`, {})
+        await axios.delete(`http://127.0.0.1:5000/todo/${_id}`, {})
             .then(function (response) {
                 console.log(response);
             })
@@ -47,7 +47,7 @@ function App() {
                 console.log(error);
             });
 
-        await axios.get('https://cryptic-shore-44131.herokuapp.com/todo')
+        await axios.get('http://127.0.0.1:5000/todo')
             .then(function (response) {
                 const listFromServer = response.data
                 // handle success
@@ -60,14 +60,14 @@ function App() {
             })
     }
     const updateTodo = async (newTitle, _id) => {
-        await axios.patch(`https://cryptic-shore-44131.herokuapp.com/todo/${_id}`, {name:newTitle})
+        await axios.patch(`http://127.0.0.1:5000/todo/${_id}`, {name:newTitle})
             .then(function () {
                          })
             .catch(function (error) {
                 console.log(error);
             });
 
-        await axios.get('https://cryptic-shore-44131.herokuapp.com/todo')
+        await axios.get('http://127.0.0.1:5000/todo')
             .then(function (response) {
                 const listFromServer = response.data
                 // handle success
@@ -80,14 +80,14 @@ function App() {
             })
     }
     const markTodo = async (_id, done) => {
-        await axios.patch(`https://cryptic-shore-44131.herokuapp.com/todo/${_id}`, {done: !done})
+        await axios.patch(`http://127.0.0.1:5000/todo/${_id}`, {done: !done})
             .then(function (response) {
             })
 
             .catch(function (error) {
                 console.log(error);
             })
-        await axios.get('https://cryptic-shore-44131.herokuapp.com/todo')
+        await axios.get('http://127.0.0.1:5000/todo')
             .then(function (response) {
                 const listFromServer = response.data
                 // handle success
@@ -123,7 +123,7 @@ function App() {
 
     }
     useEffect( ()=> {
-        axios.get('https://cryptic-shore-44131.herokuapp.com/todo')
+        axios.get('http://127.0.0.1:5000/todo')
             .then(function (response) {
                 const listFromServer = response.data
                 // handle success
@@ -135,7 +135,7 @@ function App() {
                 console.log(error);
             });
     }, [])
-    // axios.post('http://localhost:5000/todo', {
+    // axios.post('http://127.0.0.1:5000/todo', {
     //     name: 'AxelP',
     //     editMode: true
     // })
